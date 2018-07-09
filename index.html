@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Freethinkers</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Poor+Story&amp;subset=korean" rel="stylesheet">
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1 class="title">Freethinkers</h1>
+    <h2 class="sub-title">대학 연합 자유사상 동아리</h2>
+    <h3 class="sub-title">GitHub 프로젝트 페이지</h3>
+  </header>
+  <article>
+    <h1>프로젝트 목록</h1>
+    <div id="freethinkers-projects"></div>
+  </article>
+</body>
+<script src="js-dev/jQuery.s0.github.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $("#freethinkers-projects").loadRepositories("Freethinkers-kr");
+  });
+</script>
+</html>
