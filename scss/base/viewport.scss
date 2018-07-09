@@ -1,0 +1,27 @@
+// main: ../style.scss
+
+$responsive_breakpoints_map: (
+  s:   600px,
+  m:  1024px,
+  l:  1440px,
+  xl: 1920px
+);
+
+//
+// MediaQuery for Responsive Layout
+// ==============================================
+// @ media($key)
+// -> $key: select query
+//      s, m, l, xl
+// >> usage
+//    @include media($key) {
+//       styles...
+//    }
+//
+
+@mixin media($key) {
+  $query: map-get($responsive_breakpoints_map, $key);
+  @media (min-width: #{$query}) {
+    @content;
+  }
+}

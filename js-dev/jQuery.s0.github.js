@@ -10,22 +10,30 @@ jQuery.fn.loadRepositories = function(username) {
     repos = data;
     sortByNumberOfWatchers(repos);
     localStorage.setItem("repodata", data);
-    var list = $('<dl/>');
-    target.empty().append(list);
-    $(repos).each(function() {
-      list.append('<dt><a href="'+ this.svn_url +'">' + this.name + '</a></dt>');
-      list.append('<dd>' + this.description + '</dd>');
-    });
+    itemArrange(repos, target);
   }, function(data){
     repos = localStorage.getItem("repodata");
-    var list = $('<dl/>');
-    target.empty().append(list);
-    $(repos).each(function() {
-      list.append('<dt><a href="'+ this.svn_url +'">' + this.name + '</a></dt>');
-      list.append('<dd>' + this.description + '</dd>');
-    });
+    itemArrange(repos, target);
   });
 
+  function itemArrange(repodata, target){
+    var list = $('<div class="flex-wrap"></div>');
+    $(repos).each(function(){
+      let listItem = $('<div class="flex-item"></div>');
+      let contect = $('<div class="item-contect"></div>');
+      listItem.append('<span class="item-title">'+this.name+'</span>');
+      listItem.append('<p>'+this.description+'</p>');
+      contect.append('<a class="contect" href="' + this.html_url + '"><i class="fab fa-github-alt"></i></a>');
+      if(this.has_pages){
+        let url = this.full_name.split('/');
+        let href = "https://" + url[0] + ".github.io/" + url[1];
+        contect.append('<a class="contect" href="' + href + '"><i class="fas fa-passport"></i></a>');
+      }
+      listItem.append(contect);
+      list.append(listItem);
+    });
+    target.empty().append(list);
+  }
 
   function sortByNumberOfWatchers(repos) {
     $(repos).sort(function(a,b) {

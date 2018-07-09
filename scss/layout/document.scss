@@ -1,7 +1,21 @@
 // main: ../style.scss
 body {
-  font-family: 'Poor Story', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
+}
+.title {
+  font-family: 'Black Han Sans', sans-serif;
 }
 article {
   padding: 0 0.5rem;
+  @include media(m){
+    width: 650px;
+    margin: auto;
+  }
+}
+header {
+  margin: 1rem 0;
+}
+
+p {
+  line-height: 1.6;
 }

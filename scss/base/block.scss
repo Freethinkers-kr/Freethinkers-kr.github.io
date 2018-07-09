@@ -1,0 +1,34 @@
+// main: ../style.scss
+
+.flex-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.flex-item {
+  order: 1;
+  flex-grow: 1;
+  padding: 0.5rem;
+  width: calc((100% - 1rem - 1rem) / 3);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  @include shadow(1);
+  @include media(s){
+    width: calc((100% - 1.5rem - 1rem) / 4);
+  }
+}
+.item-title {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgba(#000, 0.75);
+  font-size: 1.2em;
+}
+.item-contect {
+  text-align: right;
+  .contect {
+    font-size: 1.5em;
+    margin-left: 0.5rem;
+    color: #F48FB1;
+  }
+}
