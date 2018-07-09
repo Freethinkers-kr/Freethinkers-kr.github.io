@@ -14,7 +14,7 @@ jQuery.fn.loadRepositories = function(username) {
     var list = $('<dl/>');
     target.empty().append(list);
     $(repos).each(function() {
-      list.append('<dt><a href="'+ this.url +'">' + this.name + '</a></dt>');
+      list.append('<dt><a href="'+ this.svn_url +'">' + this.name + '</a></dt>');
       list.append('<dd>' + this.description + '</dd>');
     });
   });
